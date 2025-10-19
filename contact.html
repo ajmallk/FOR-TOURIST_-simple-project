@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact Us</title>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Segoe UI", sans-serif;
+    }
+    body {
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: linear-gradient(270deg, #ff9966, #ff5e62, #6a11cb, #2575fc);
+        background-size: 800% 800%;
+        animation: gradientShift 15s ease infinite;
+    }
+    @keyframes gradientShift {
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
+    }
+    .contact-container {
+        background: rgba(255, 255, 255, 0.15);
+        backdrop-filter: blur(10px);
+        padding: 2rem;
+        border-radius: 15px;
+        width: 400px;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        animation: fadeIn 1s ease forwards;
+    }
+    h2 {
+        text-align: center;
+        color: white;
+        margin-bottom: 0.5rem;
+        animation: slideUp 0.8s ease forwards;
+    }
+    p {
+        text-align: center;
+        color: #f1f1f1;
+        margin-bottom: 1.5rem;
+        font-size: 0.9rem;
+        animation: slideUp 0.9s ease forwards;
+    }
+    input, select, textarea {
+        width: 100%;
+        padding: 0.7rem;
+        margin-bottom: 1rem;
+        border: none;
+        border-radius: 6px;
+        outline: none;
+        font-size: 1rem;
+        transition: 0.3s;
+        opacity: 0;
+        transform: translateY(20px);
+        animation: slideUp 0.8s ease forwards;
+    }
+    input:nth-child(1) { animation-delay: 0.2s; }
+    input:nth-child(2) { animation-delay: 0.4s; }
+    select { animation-delay: 0.6s; }
+    input:nth-child(4) { animation-delay: 0.8s; }
+    textarea { animation-delay: 1s; }
+    input:focus, select:focus, textarea:focus {
+        box-shadow: 0 0 10px rgba(0, 200, 255, 0.8);
+        transform: scale(1.02);
+    }
+    textarea {
+        resize: none;
+        height: 100px;
+    }
+    button {
+        background: #4CAF50;
+        color: white;
+        padding: 0.8rem;
+        border: none;
+        border-radius: 6px;
+        width: 100%;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: 0.3s;
+        position: relative;
+        overflow: hidden;
+        animation: slideUp 1.2s ease forwards;
+    }
+    button:hover {
+        background: #3e8e41;
+        transform: scale(1.05);
+    }
+    button:active::after {
+        content: "";
+        position: absolute;
+        width: 100px;
+        height: 100px;
+        background: rgba(255,255,255,0.5);
+        border-radius: 50%;
+        transform: scale(0);
+        animation: ripple 0.6s linear;
+    }
+    @keyframes ripple {
+        to { transform: scale(4); opacity: 0; }
+    }
+    @keyframes fadeIn {
+        from { opacity: 0; transform: scale(0.95); }
+        to { opacity: 1; transform: scale(1); }
+    }
+    @keyframes slideUp {
+        to { opacity: 1; transform: translateY(0); }
+    }
+</style>
+</head>
+<body>
+
+<div class="contact-container">
+    <h2>Contact Us</h2>
+    <p>We’d love to hear from you! Fill out the form below.</p>
+
+    <input type="text" placeholder="Full Name" required>
+    <input type="email" placeholder="Email" required>
+    <select>
+        <option value="">Select Country</option>
+        <option>India</option>
+        <option>USA</option>
+        <option>UK</option>
+        <option>Canada</option>
+    </select>
+    <input type="text" placeholder="Subject" required>
+    <textarea placeholder="Write something..."></textarea>
+
+    <button onclick="submitForm()">Submit</button>
+</div>
+
+<script>
+    function submitForm() {
+        alert("✅ Thank you! Your message has been sent.");
+    }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Exploring Page</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(-45deg, #ff4e50, #f9d423, #24c6dc, #514a9d);
+      color: white;
+      min-height: 100vh;
+    }
+
+    /* 🔥 Navbar */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      padding: 12px 40px;
+      background: rgba(0, 0, 0, 0.4);
+      backdrop-filter: blur(8px);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+    }
+
+    nav a {
+      position: relative;
+      margin-left: 25px;
+      color: #fff;
+      text-decoration: none;
+      font-size: 17px;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      transition: color 0.3s ease;
+    }
+
+    nav a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -5px;
+      width: 0%;
+      height: 2px;
+      background: #00f2ff;
+      transition: width 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #00f2ff;
+    }
+
+    nav a:hover::after {
+      width: 100%;
+    }
+
+    .container {
+      padding: 30px 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    .dropdown {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    select {
+      padding: 10px 15px;
+      font-size: 16px;
+      border-radius: 6px;
+      border: none;
+    }
+
+    h1 {
+      text-align: center;
+      margin: 20px 0;
+      font-size: 32px;
+    }
+
+    .locations {
+      display: grid;
+      gap: 20px;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    }
+
+    .card {
+      background-color: rgba(255, 255, 255, 0.1);
+      padding: 15px;
+      border-radius: 10px;
+      text-align: center;
+      box-shadow: 1px 1px 20px rgb(29, 30, 24);
+      transition: transform 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    .card img {
+      max-width: 100%;
+      border-radius: 8px;
+      height: 180px;
+      object-fit: cover;
+    }
+
+    .card h3 {
+      margin: 10px 0 5px;
+    }
+
+    .map-btn {
+      margin-top: 10px;
+      padding: 8px 15px;
+      background-color: #0077cc;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .map-btn:hover {
+      background-color: #005fa3;
+    }
+
+    footer {
+      margin-top: 40px;
+      text-align: center;
+      padding: 15px;
+      background: rgba(0, 0, 0, 0.6);
+      font-size: 14px;
+    }
+
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 24px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="index.html">home</a>
+    <a href="login.html">Login</a>
+    <a href="exploring.html">Exploring</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+
+  <div class="container">
+    <div class="dropdown">
+      <label for="location">Select Location: </label>
+      <select id="location" onchange="filterLocation()">
+        <option value="all">All</option>
+        <option value="wayanad">Wayanad</option>
+        <option value="kozhikode">Kozhikode</option>
+         <option value="Malappuram">Malappuram</option>
+      </select>
+    </div>
+
+    <h1>Here's to you - Exploring Areas</h1>
+
+    <div class="locations" id="locationsList">
+
+      <!-- Wayanad -->
+      <div class="card" data-location="wayanad">
+        <img src="/Wyn-gallery/Chembra Peak- A scenic blessed destination for some breathtaking views in Kerala__.jpg" alt="Chembra Peak">
+        <h3>Chembra Peak</h3>
+        <button class="map-btn" data-url="https://maps.app.goo.gl/CcjzHV3Q4yg255vz5">Map</button>
+      </div>
+
+      <div class="card" data-location="wayanad">
+        <img src="/Wyn-gallery/pookot_.jpg" alt="Pookode Lake">
+        <h3>Pookode Lake</h3>
+        <button class="map-btn" data-url="https://goo.gl/maps/dB1CJYQh8r2avD4D6">Map</button>
+      </div>
+
+      <div class="card" data-location="wayanad">
+        <img src="/Wyn-gallery/Phantom rock, Wayanad, Kerala,India.jpg" alt="Kuruvadweep">
+        <h3>Edakkal Caves</h3>
+        <button class="map-btn" data-url="https://goo.gl/maps/xPQv4C5Wn92rWos48">Map</button>
+      </div>
+
+      <div class="card" data-location="wayanad">
+        <img src="Banasura.jpg" alt="Banasura Sagar Dam">
+        <h3>Banasura Sagar Dam</h3>
+        <button class="map-btn" data-url="https://goo.gl/maps/V8g9LVf7ZY82">Map</button>
+      </div>
+
+      <div class="card" data-location="wayanad">
+        <img src="Wildlife.jpg" alt="Wayanad Wildlife Sanctuary">
+        <h3>Wayanad Wildlife Sanctuary</h3>
+        <button class="map-btn" data-url="https://goo.gl/maps/xPQv4C5Wn92rWos48">Map</button>
+      </div>
+
+      <div class="card" data-location="wayanad">
+        <img src="Phantom.jpg" alt="Phantom Rock">
+        <h3>lakkidi view point</h3>
+        <button class="map-btn" data-url="https://goo.gl/maps/4s69N7TjZz62">Map</button>
+      </div>
+
+       <div class="card" data-location="wayanad">
+        <img src="Phantom.jpg" alt="Phantom Rock">
+        <h3>Audathode View Point</h3>
+        <button class="map-btn" data-url="https://goo.gl/maps/4s69N7TjZz62">Map</button>
+      </div>
+      
+       <div class="card" data-location="wayanad">
+        <img src="Phantom.jpg" alt="Phantom Rock">
+        <h3>cheengeri hills</h3>
+        <button class="map-btn" data-url="https://goo.gl/maps/4s69N7TjZz62">Map</button>
+      </div>
+      
+       <div class="card" data-location="wayanad">
+        <img src="Phantom.jpg" alt="Phantom Rock">
+        <h3>Karapuzha Dam</h3>
+        <button class="map-btn" data-url="https://goo.gl/maps/4s69N7TjZz62">Map</button>
+      </div>
+
+
+      <!-- Kozhikode -->
+      <div class="card" data-location="kozhikode">
+        <img src="https://source.unsplash.com/400x300/?beach,sea" alt="Kozhikode Beach">
+        <h3>Kozhikode Beach</h3>
+        <button class="map-btn" data-url="https://goo.gl/maps/BmNnRffuSLU2">Map</button>
+      </div>
+
+      <div class="card" data-location="kozhikode">
+        <img src="https://source.unsplash.com/400x300/?sunset,beach" alt="Beypore Beach">
+        <h3>Beypore Beach</h3>
+        <button class="map-btn" data-url="https://goo.gl/maps/Z8bPjo5Qzv82">Map</button>
+      </div>
+
+      <div class="card" data-location="kozhikode">
+        <img src="https://source.unsplash.com/400x300/?historic,kerala" alt="Kappad Beach">
+        <h3>Kappad Beach</h3>
+        <button class="map-btn" data-url="https://goo.gl/maps/cj1rK9f9Qb82">Map</button>
+      </div>
+
+      <div class="card" data-location="kozhikode">
+        <img src="https://source.unsplash.com/400x300/?beach,sea" alt="Kozhikode Beach">
+        <h3>thusharagiri waterfalls</h3>
+        <button class="map-btn" data-url="https://goo.gl/maps/BmNnRffuSLU2">Map</button>
+      </div>
+
+       <div class="card" data-location="kozhikode">
+        <img src="https://source.unsplash.com/400x300/?beach,sea" alt="Kozhikode Beach">
+        <h3>peruvannamuzhi dam</h3>
+        <button class="map-btn" data-url="https://goo.gl/maps/BmNnRffuSLU2">Map</button>
+      </div>
+
+      <div class="card" data-location="kozhikode">
+        <img src="https://source.unsplash.com/400x300/?sunset,beach" alt="Beypore Beach">
+        <h3>mishkal mosque</h3>
+        <button class="map-btn" data-url="https://goo.gl/maps/Z8bPjo5Qzv82">Map</button>
+      </div>
+
+      <div class="card" data-location="kozhikode">
+        <img src="https://source.unsplash.com/400x300/?historic,kerala" alt="Kappad Beach">
+        <h3>SM Street</h3>
+        <button class="map-btn" data-url="https://goo.gl/maps/cj1rK9f9Qb82">Map</button>
+      </div>
+
+      <div class="card" data-location="kozhikode">
+        <img src="https://source.unsplash.com/400x300/?beach,sea" alt="Kozhikode Beach">
+        <h3>Tali Maha Shiva Kshetram</h3>
+        <button class="map-btn" data-url="https://goo.gl/maps/BmNnRffuSLU2">Map</button>
+      </div>
+
+       <div class="card" data-location="kozhikode">
+        <img src="https://source.unsplash.com/400x300/?beach,sea" alt="Kozhikode Beach">
+        <h3>mother of god cathedral</h3>
+        <button class="map-btn" data-url="https://goo.gl/maps/BmNnRffuSLU2">Map</button>
+      </div>
+
+    </div>
+  </div>
+
+  <footer>
+    © 2025 ForTourist. All rights reserved.
+  </footer>
+
+  <script>
+    // Filtering function
+    function filterLocation() {
+      const selected = document.getElementById('location').value;
+      const cards = document.querySelectorAll('.card');
+
+      cards.forEach(card => {
+        const loc = card.getAttribute('data-location');
+        card.style.display = (selected === "all" || selected === loc) ? "" : "none";
+      });
+    }
+
+    // Map button handler
+    document.querySelectorAll('.map-btn').forEach(button => {
+      button.addEventListener('click', () => {
+        const url = button.getAttribute('data-url');
+        window.open(url, '_blank'); // open in new tabs
+      });
+    });
+  </script>
+
+</body>
+</html>
