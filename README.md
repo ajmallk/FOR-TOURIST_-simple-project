@@ -1,3 +1,4 @@
 ﻿# project--for_tourist-
 
-modele ui mode
+https://ajmallk.github.io/FOR-TOURIST_-simple-project/
+
