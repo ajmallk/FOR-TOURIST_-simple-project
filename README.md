@@ -1,4 +1,3 @@
-﻿# project--for_tourist-
+https://for-tourist-kerala.netlify.app/
 
-https://ajmallk.github.io/FOR-TOURIST_-simple-project/
 
